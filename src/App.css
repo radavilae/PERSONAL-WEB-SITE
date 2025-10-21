@@ -1,0 +1,282 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+#root {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Navigation Styles - Minimalist */
+#navbar {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+#menu-options {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#menu-options li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+#menu-options li a:hover {
+  color: #666;
+}
+
+/* Page Content - Clean Typography */
+#nombre {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+#foto {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+#foto img {
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Section Styles - Minimalist */
+section {
+  margin: 3rem 0;
+  text-align: left;
+}
+
+section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+section h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+  font-weight: 400;
+  color: #333;
+}
+
+section p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 14px;
+  color: #333;
+}
+
+section a {
+  color: #333;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+section a:hover {
+  color: #666;
+}
+
+/* Links in projects section */
+#projects a {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+/* Album covers section */
+.album-covers {
+  margin-top: 3rem;
+}
+
+.album-covers h3 {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 400;
+  color: #333;
+  grid-column: 1 / -1;
+}
+
+/* Bandcamp embeds mosaic */
+.bandcamp-embed {
+  margin-bottom: 2rem;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 1rem;
+}
+
+.bandcamp-embed iframe {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bandcamp-embed iframe:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Mosaic layout for bandcamp embeds */
+.album-covers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.covers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.covers-grid a {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.covers-grid a:hover {
+  transform: scale(1.05);
+}
+
+.covers-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.album-cover {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.album-cover:hover {
+  transform: scale(1.05);
+}
+
+.album-title {
+  margin-top: 0.5rem;
+  font-size: 12px;
+  text-align: center;
+  color: #666;
+  line-height: 1.3;
+}
+
+/* Contact section */
+#contact p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem 0.5rem;
+  }
+  
+  #menu-options {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #nombre {
+    font-size: 2rem;
+  }
+  
+  #foto img {
+    max-width: 150px;
+  }
+  
+  section {
+    margin: 2rem 0;
+  }
+  
+  /* Mobile: single column for bandcamp embeds */
+  .album-covers {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .bandcamp-embed iframe {
+    width: 100% !important;
+    max-width: 350px;
+  }
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
