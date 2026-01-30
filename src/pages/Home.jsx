@@ -9,7 +9,7 @@ const Home = () => {
       <h1 id="nombre">RAÚL DÁVILA</h1>
       <p id="subtitulo">{t('home.subtitle')}</p>
       <div id="foto">
-        <img src="/imagenes/foto_portada_2.PNG" alt="Raúl Dávila" />
+        <img src="/imagenes/foto-portada.jpg" alt="Raúl Dávila" />
       </div>
     </div>
   );
