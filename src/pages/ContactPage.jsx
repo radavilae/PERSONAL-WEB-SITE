@@ -3,11 +3,18 @@ import React from 'react';
 const ContactPage = () => {
   return (
     <div>
-      <h1 id="nombre">RAÚL DÁVILA</h1>
-
-      <section id="contact">
-        <h2>CONTACT</h2>
+      <section id="contact" style={{ textAlign: 'center' }}>
         <p>raul.davila.es@gmail.com</p>
+        <p>
+          <a
+            href="https://www.instagram.com/rj__dvla/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#333', textDecoration: 'none' }}
+          >
+            @rj__dvla
+          </a>
+        </p>
       </section>
     </div>
   );
