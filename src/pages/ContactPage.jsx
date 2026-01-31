@@ -1,19 +1,21 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
+import ExternalLink from '../components/ExternalLink';
 
 const ContactPage = () => {
+  const { t } = useLanguage();
+
   return (
     <div>
-      <section id="contact" style={{ textAlign: 'center' }}>
-        <p>raul.davila.es@gmail.com</p>
+      <section id="contact">
+        <p>{t('contact.email')}</p>
         <p>
-          <a
+          <ExternalLink 
             href="https://www.instagram.com/rj__dvla/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#333', textDecoration: 'none' }}
+            className="instagram-link"
           >
-            @rj__dvla
-          </a>
+            {t('contact.instagram')}
+          </ExternalLink>
         </p>
       </section>
     </div>

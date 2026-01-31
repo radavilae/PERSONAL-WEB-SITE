@@ -15,16 +15,22 @@ body {
 #root {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 5rem 1rem 2rem 1rem;
 }
 
 /* Navigation Styles - Minimalist */
 #navbar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 1000;
   margin-bottom: 3rem;
   border-bottom: 1px solid #eee;
   padding-bottom: 1rem;
   padding-right: 4rem;
+  padding-top: 1rem;
 }
 
 #menu-options {
@@ -98,12 +104,25 @@ section {
 }
 
 section h2 {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  text-align: left;
-  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+}
+
+/* Contact Page Styles */
+#contact {
+  text-align: center;
+}
+
+.instagram-link {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.instagram-link:hover {
   color: #666;
 }
 
@@ -288,37 +307,380 @@ section a:hover {
 .urbild-item {
   position: relative;
   padding-bottom: 100%;
-  height: 0;
   overflow: hidden;
-  background: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.score-link,
-.urbild-link {
-  position: absolute;
-  top: 0;
-  left: 0;
+.score-item:hover,
+.urbild-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.score-container {
+  position: relative;
   width: 100%;
   height: 100%;
-  display: block;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  user-select: none; /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
-.score-link:hover,
-.urbild-link:hover {
-  transform: scale(1.05);
+/* Score Cover Design */
+.score-cover-item {
+  grid-column: span 2;
+  padding-bottom: 60%;
 }
 
-.score-image,
-.urbild-image {
+.score-cover-card {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.score-cover-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.score-cover-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
+.score-cover-thumbnails {
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+}
+
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail-item {
+  overflow: hidden;
+  background: #fff;
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail-item:hover .thumbnail-image {
+  transform: scale(1.05);
+}
+
+.score-cover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 60px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-cover-title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.score-cover-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+.score-cover-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  text-decoration: none;
+}
+
+/* Simple Score Cards */
+.score-simple-item {
+  position: relative;
+  padding-bottom: 141.42%; /* A4 ratio */
+  overflow: hidden;
+}
+
+.score-simple-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.score-simple-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.score-image {
+  width: 100%;
+  height: calc(100% - 50px);
+  object-fit: cover;
+  display: block;
+}
+
+.score-simple-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #333;
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.score-simple-btn:hover {
+  background: #555;
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive for score cards */
+@media (max-width: 768px) {
+  .score-cover-item {
+    grid-column: span 1;
+    padding-bottom: 141.42%;
+  }
+  
+  .score-cover-title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  
+  .score-cover-btn {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .score-simple-btn {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .score-cover-title {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .score-cover-btn {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+  
+  .score-simple-btn {
+    padding: 8px;
+    font-size: 0.7rem;
+  }
+}
+
 .score-item {
   padding-bottom: 141.42%; /* A4 ratio aproximado */
+}
+
+/* Empty Score Items */
+.score-empty-item {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio como YouTube */
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.score-floating-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.score-floating-text p {
+  margin: 0.3rem 0;
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+.score-floating-text p:first-child {
+  font-size: 0.9rem;
+  color: #000;
+  font-weight: bold;
+}
+
+.score-pdf-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  background: transparent;
+  color: #333;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.score-pdf-btn:hover {
+  background: transparent;
+  color: #666;
+  text-decoration: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .score-floating-text p {
+    font-size: 0.7rem;
+    margin: 0.2rem 0;
+  }
+  
+  .score-floating-text p:first-child {
+    font-size: 0.8rem;
+  }
+  
+  .score-pdf-btn {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .score-floating-text p {
+    font-size: 0.6rem;
+    margin: 0.15rem 0;
+  }
+  
+  .score-floating-text p:first-child {
+    font-size: 0.7rem;
+  }
+  
+  .score-pdf-btn {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.5rem;
+  }
+}
+
+/* Section Links */
+.section-link {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 1rem;
+}
+
+.external-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.external-link:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.external-link::after {
+  content: ' →';
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.external-link:hover::after {
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .external-link {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .external-link {
+    font-size: 0.7rem;
+  }
+}
+
+.score-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.score-item:hover .score-overlay {
+  opacity: 1;
+}
+
+.score-title {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  display: block;
 }
 
 /* Carousel Navigation Arrows - Minimalist */
@@ -562,7 +924,7 @@ section a:hover {
 /* Tablets */
 @media (max-width: 768px) {
   #root {
-    padding: 1rem 0.5rem;
+    padding: 4rem 0.5rem 1rem 0.5rem;
   }
   
   #navbar {
@@ -649,7 +1011,7 @@ section a:hover {
 /* Mobile phones */
 @media (max-width: 480px) {
   #root {
-    padding: 0.5rem;
+    padding: 3.5rem 0.5rem 1rem 0.5rem;
   }
   
   #nombre {

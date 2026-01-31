@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import LanguageSelector from './LanguageSelector';
 
 const Navigation = () => {
-  const { t, setLanguage, language } = useLanguage();
-
-  const handleLanguageClick = (lang) => {
-    setLanguage(lang);
-  };
+  const { t } = useLanguage();
 
   return (
     <nav id="navbar">
@@ -17,26 +14,7 @@ const Navigation = () => {
         <li><Link to="/research">{t('nav.research')}</Link></li>
         <li><Link to="/projects">{t('nav.projects')}</Link></li>
         <li><Link to="/contact">{t('nav.contact')}</Link></li>
-        <li className="language-selector">
-          <span 
-            onClick={() => handleLanguageClick('ca')}
-            className={`lang-option ${language === 'ca' ? 'active-lang' : ''}`}
-          >
-            CA
-          </span>
-          <span 
-            onClick={() => handleLanguageClick('es')}
-            className={`lang-option ${language === 'es' ? 'active-lang' : ''}`}
-          >
-            ES
-          </span>
-          <span 
-            onClick={() => handleLanguageClick('en')}
-            className={`lang-option ${language === 'en' ? 'active-lang' : ''}`}
-          >
-            EN
-          </span>
-        </li>
+        <LanguageSelector />
       </ul>
     </nav>
   );

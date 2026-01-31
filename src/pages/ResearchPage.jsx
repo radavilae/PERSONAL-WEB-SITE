@@ -6,8 +6,6 @@ const ResearchPage = () => {
 
   return (
     <div>
-      <h1 id="nombre">RAÚL DÁVILA</h1>
-
       <section id="research">
         <h2>{t('research.title')}</h2>
         

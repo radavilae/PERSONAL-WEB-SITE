@@ -100,20 +100,20 @@ const ProjectsPage = () => {
   // SoundCloud embeds
   const soundcloudEmbeds = [
     {
+      src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A295215992&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
+      title: 'SP1151ES |  Objetos Parciales | Liminar Ensemble'
+    },
+    {
+      src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A294154657&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
+      title: 'FS/16_2  | Objetos Parciales | Amplified string quartet | Liminar Quartet'
+    },
+    {
+      src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A199451747&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
+      title: 'MV4 - 3.2 II  |Objetos Parciales |  Amplified Bass Clarinet'
+    },
+    {
       src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A803925304&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
       title: 'NIERIKA | Entretejiendo el canto con el sueño'
-    },
-    {
-      src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A589651914&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
-      title: 'UR | Sound Installation No. 2: Resonant Room.'
-    },
-    {
-      src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A366646259&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
-      title: 'UR | Sound Installation No. 1: Sempre Legato_Three voices'
-    },
-    {
-      src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A295220721&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
-      title: 'Tautologia de La ausencia | voice and electronics'
     }
   ];
 
@@ -125,18 +125,21 @@ const ProjectsPage = () => {
   // 4. Reemplaza 'VIDEO_ID_1' con tu ID real
   // Ejemplo: { id: 'dQw4w9WgXcQ', title: 'Mi Video' }
   const youtubeVideos = [
-    { id: 'VIDEO_ID_1', title: 'YouTube Video 1' },
-    { id: 'VIDEO_ID_2', title: 'YouTube Video 2' },
-    { id: 'VIDEO_ID_3', title: 'YouTube Video 3' },
-    { id: 'VIDEO_ID_4', title: 'YouTube Video 4' }
+    { id: 'cMyFQO6l7vI', title: 'YouTube Video 1' },
+    { id: 'o7Un6uPBSIw', title: 'YouTube Video 2' },
+    { id: 'WRmghAhCYcM', title: 'YouTube Video 3' },
+    { id: 'CjVqQQxdryM', title: 'YouTube Video 4' }
   ];
 
-  // Scores - Agrega las URLs o imágenes de tus partituras
+  // Scores - PDFs de partituras (no descargables)
+  // INSTRUCCIONES:
+  // 1. Coloca tus PDFs en la carpeta public/imagenes/scores/
+  // 2. Actualiza los nombres de archivo abajo
   const scores = [
-    { url: 'https://drive.google.com/file/d/SCORE_ID_1/view', image: '/images/score1.jpg', title: 'Score 1' },
-    { url: 'https://drive.google.com/file/d/SCORE_ID_2/view', image: '/images/score2.jpg', title: 'Score 2' },
-    { url: 'https://drive.google.com/file/d/SCORE_ID_3/view', image: '/images/score3.jpg', title: 'Score 3' },
-    { url: 'https://drive.google.com/file/d/SCORE_ID_4/view', image: '/images/score4.jpg', title: 'Score 4' }
+    { pdf: '/imagenes/scores/score1.pdf', title: 'Score 1' },
+    { pdf: '/imagenes/scores/score2.pdf', title: 'Score 2' },
+    { pdf: '/imagenes/scores/score3.pdf', title: 'Score 3' },
+    { pdf: '/imagenes/scores/score4.pdf', title: 'Score 4' }
   ];
 
   // Urbild Editions - Agrega las URLs o imágenes de tus publicaciones
@@ -149,8 +152,6 @@ const ProjectsPage = () => {
 
   return (
     <div>
-      <h1 id="nombre">RAÚL DÁVILA</h1>
-
       <section id="projects">
         {/* Page Indicators */}
         <div className="page-indicators">
@@ -214,6 +215,11 @@ const ProjectsPage = () => {
                   </div>
                 ))}
               </div>
+              <div className="section-link">
+                <a href="https://davila.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="external-link">
+                  Bandcamp
+                </a>
+              </div>
             </div>
 
             {/* Page 2: YouTube */}
@@ -235,6 +241,11 @@ const ProjectsPage = () => {
                   </div>
                 ))}
               </div>
+              <div className="section-link">
+                <a href="https://www.youtube.com/@rauldavila720" target="_blank" rel="noopener noreferrer" className="external-link">
+                  YouTube
+                </a>
+              </div>
             </div>
 
             {/* Page 3: SoundCloud */}
@@ -254,30 +265,90 @@ const ProjectsPage = () => {
                   </div>
                 ))}
               </div>
+              <div className="section-link">
+                <a href="https://soundcloud.com/raul_davila" target="_blank" rel="noopener noreferrer" className="external-link">
+                  SoundCloud
+                </a>
+              </div>
             </div>
 
             {/* Page 4: Scores */}
             <div className="carousel-page">
               <div className="media-grid">
                 {scores.slice(0, 4).map((score, index) => (
-                  <div key={index} className="media-item score-item">
-                    <a
-                      href={score.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="score-link"
-                    >
-                      <img
-                        src={score.image}
-                        alt={score.title}
-                        className="score-image"
-                        onError={(e) => {
-                          e.target.src = 'https://via.placeholder.com/400x600?text=Score';
-                        }}
-                      />
-                    </a>
+                  <div key={index} className="media-item score-empty-item">
+                    {index === 0 && (
+                      <div className="score-floating-text">
+                        <p>{t('projects.score1Title')}</p>
+                        <p>{t('projects.score1Description')}</p>
+                        <p>{t('projects.score1Author')}</p>
+                        <p>{t('projects.score1Year')}</p>
+                        <a
+                          href="/imagenes/scores/fs:16_2.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="score-pdf-btn"
+                        >
+                          {t('projects.pdfButton')}
+                        </a>
+                      </div>
+                    )}
+                    {index === 1 && (
+                      <div className="score-floating-text">
+                        <p>{t('projects.score2Title')}</p>
+                        <p>{t('projects.score2Subtitle')}</p>
+                        <p>{t('projects.score2Description')}</p>
+                        <p>{t('projects.score2Author')}</p>
+                        <p>{t('projects.score2Year')}</p>
+                        <a
+                          href="/imagenes/scores/gesang-ist-dasein.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="score-pdf-btn"
+                        >
+                          {t('projects.pdfButton')}
+                        </a>
+                      </div>
+                    )}
+                    {index === 2 && (
+                      <div className="score-floating-text">
+                        <p>{t('projects.score3Title')}</p>
+                        <p>{t('projects.score3Description')}</p>
+                        <p>{t('projects.score3Author')}</p>
+                        <p>{t('projects.score3Year')}</p>
+                        <a
+                          href="/imagenes/scores/mv4-3-2-II.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="score-pdf-btn"
+                        >
+                          {t('projects.pdfButton')}
+                        </a>
+                      </div>
+                    )}
+                    {index === 3 && (
+                      <div className="score-floating-text">
+                        <p>{t('projects.score4Title')}</p>
+                        <p>{t('projects.score4Description')}</p>
+                        <p>{t('projects.score4Author')}</p>
+                        <p>{t('projects.score4Year')}</p>
+                        <a
+                          href="/imagenes/scores/sp1151es.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="score-pdf-btn"
+                        >
+                          {t('projects.pdfButton')}
+                        </a>
+                      </div>
+                    )}
                   </div>
                 ))}
+              </div>
+              <div className="section-link">
+                <a href="https://drive.google.com/drive/folders/1RZqxTUfPmNCEv6S4miZWGbU2pCp3QtKF?usp=sharing" target="_blank" rel="noopener noreferrer" className="external-link">
+                  Scores
+                </a>
               </div>
             </div>
 
@@ -303,6 +374,11 @@ const ProjectsPage = () => {
                     </a>
                   </div>
                 ))}
+              </div>
+              <div className="section-link">
+                <a href="http://www.urbildeditions.com/" target="_blank" rel="noopener noreferrer" className="external-link">
+                  Urbild Editions
+                </a>
               </div>
             </div>
           </div>
