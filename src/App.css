@@ -33,6 +33,44 @@ body {
   padding-top: 1rem;
 }
 
+/* Hamburger Menu Button */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: 1px;
+}
+
+.hamburger-line.open:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.hamburger-line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-line.open:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
 #menu-options {
   list-style: none;
   padding: 0;
@@ -52,7 +90,6 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
-
 
 #menu-options li a {
   text-decoration: none;
@@ -1462,123 +1499,154 @@ right: -0.5rem;
 
 /* Tablets (768px - 1023px) */
 @media (max-width: 1023px) {
-#root {
-padding: 4rem 1rem 1.5rem 1rem;
-}
+  #root {
+    padding: 3rem 1rem 1.5rem 1rem; /* Reduced top padding for hamburger menu */
+  }
   
-#navbar {
-padding-right: 0;
-padding-bottom: 0.8rem;
-}
+  #navbar {
+    padding-right: 0;
+    padding-bottom: 0.8rem;
+    padding-left: 0;
+    height: auto;
+  }
   
-#menu-options {
-flex-direction: column;
-gap: 0.8rem;
-font-size: 13px;
-}
+  /* Show hamburger menu on tablets and mobile */
+  .hamburger-menu {
+    display: flex;
+  }
   
-#menu-options li:last-child {
-position: static;
-transform: none;
-}
+  #menu-options {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+    padding: 5rem 2rem 2rem 2rem;
+    font-size: 16px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
   
-#nombre {
-font-size: 2rem;
-margin-bottom: 1.5rem;
-}
+  #menu-options.mobile-open {
+    left: 0;
+  }
   
-#subtitulo {
-font-size: 0.9rem;
-margin-bottom: 2rem;
-}
+  #menu-options li {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
   
-#foto img {
-max-width: 400px;
-min-width: 280px;
-}
+  #menu-options li:last-child {
+    position: static;
+    transform: none;
+    margin-top: auto;
+    margin-bottom: 0;
+  }
   
-section {
-margin: 2rem 0;
-}
+  #menu-options li a {
+    display: block;
+    padding: 0.8rem 0;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+  }
   
-.media-grid {
-grid-template-columns: 1fr;
-gap: 1.5rem;
-padding: 0 0.5rem;
-}
+  #menu-options li a:hover {
+    color: #000;
+    background-color: #f8f8f8;
+  }
   
-.indicator-container {
-flex-direction: column;
-gap: 0.5rem;
-}
+  #nombre {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
   
-.indicator {
-width: 100%;
-text-align: center;
-padding: 0.8rem;
-font-size: 13px;
-}
+  #subtitulo {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
   
-.carousel-wrapper {
-padding: 0;
-margin: 0;
-}
+  #foto img {
+    max-width: 400px;
+    min-width: 280px;
+  }
   
-.carousel-page {
-padding: 0;
-}
+  section {
+    margin: 2rem 0;
+  }
   
-.media-grid {
-padding: 0 0.5rem;
-gap: 1rem;
-}
+  .media-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
   
-.nav-arrow {
-font-size: 20px;
-}
+  .indicator-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
   
-.nav-arrow-left {
-left: -0.3rem;
-}
+  .indicator {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 13px;
+  }
   
-.nav-arrow-right {
-right: -0.3rem;
-}
+  .carousel-wrapper {
+    padding: 0;
+    margin: 0;
+  }
   
-/* Media items responsive */
-.bandcamp-item iframe {
-height: 400px !important;
-}
+  .carousel-page {
+    padding: 0;
+  }
   
-.youtube-item iframe {
-height: 280px;
-}
+  .section-link {
+    margin-top: 1.5rem;
+  }
   
-.soundcloud-item iframe {
-height: 260px;
-}
+  /* Media items responsive */
+  .bandcamp-item iframe {
+    height: 400px !important;
+  }
   
-.score-empty-item {
-padding-bottom: 60%;
-}
+  .youtube-item iframe {
+    height: 280px;
+  }
   
-.score-floating-text p {
-font-size: 0.8rem;
-margin: 0.3rem 0;
-}
+  .soundcloud-item iframe {
+    height: 260px;
+  }
   
-.score-floating-text p:first-child {
-font-size: 0.9rem;
-}
+  .score-empty-item {
+    padding-bottom: 60%;
+  }
   
-.score-pdf-btn {
-font-size: 0.8rem;
-padding: 0.4rem 1rem;
-}
+  .score-floating-text p {
+    font-size: 0.8rem;
+    margin: 0.3rem 0;
+  }
   
-.external-link {
-font-size: 0.9rem;
-}
+  .score-floating-text p:first-child {
+    font-size: 0.9rem;
+  }
+  
+  .score-pdf-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
+  
+  .external-link {
+    font-size: 0.9rem;
+  }
 }
 
 /* Large mobile phones (480px - 767px) */
