@@ -284,7 +284,7 @@ const ProjectsPage = () => {
                         <p>{t('projects.score1Author')}</p>
                         <p>{t('projects.score1Year')}</p>
                         <a
-                          href="/imagenes/scores/fs:16_2.pdf"
+                          href="/imagenes/scores/fs_16_2.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="score-pdf-btn"
