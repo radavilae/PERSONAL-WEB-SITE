@@ -319,6 +319,63 @@ section a:hover {
   height: 300px;
 }
 
+/* SoundCloud Card Styles */
+.soundcloud-card {
+  display: flex;
+  flex-direction: column;
+  height: 470px; /* Same height as Bandcamp */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.soundcloud-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.soundcloud-image {
+  position: relative;
+  flex: 1;
+  min-height: 470px; /* Full height since player is overlay */
+  overflow: hidden;
+}
+
+.soundcloud-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.soundcloud-card:hover .soundcloud-cover {
+  transform: scale(1.05);
+}
+
+.soundcloud-player-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  backdrop-filter: blur(5px);
+}
+
+.soundcloud-player-overlay iframe {
+  width: 100%;
+  height: 60px;
+  border-radius: 4px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.soundcloud-player-overlay:hover iframe {
+  opacity: 1;
+}
+
 .youtube-item {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
@@ -955,6 +1012,22 @@ text-decoration: underline;
   
   .soundcloud-item iframe {
     height: 190px;
+  }
+  
+  .soundcloud-card {
+    height: 320px; /* Same as responsive Bandcamp */
+  }
+  
+  .soundcloud-image {
+    min-height: 320px;
+  }
+  
+  .soundcloud-player-overlay {
+    padding: 0.8rem 0.4rem 0.4rem 0.4rem;
+  }
+  
+  .soundcloud-player-overlay iframe {
+    height: 50px;
   }
   
   .score-empty-item {

@@ -253,15 +253,26 @@ const ProjectsPage = () => {
               <div className="media-grid">
                 {soundcloudEmbeds.slice(0, 4).map((embed, index) => (
                   <div key={index} className="media-item soundcloud-item">
-                    <iframe
-                      width="100%"
-                      height="300"
-                      scrolling="no"
-                      frameBorder="no"
-                      allow="autoplay"
-                      src={embed.src}
-                      title={embed.title}
-                    ></iframe>
+                    <div className="soundcloud-card">
+                      <div className="soundcloud-image">
+                        <img 
+                          src={`/imagenes/foto-home.jpg`}
+                          alt={`SoundCloud Track ${index + 1}`}
+                          className="soundcloud-cover"
+                        />
+                        <div className="soundcloud-player-overlay">
+                          <iframe
+                            width="100%"
+                            height="60"
+                            scrolling="no"
+                            frameBorder="no"
+                            allow="autoplay"
+                            src={embed.src}
+                            title={embed.title}
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
