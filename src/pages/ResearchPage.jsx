@@ -7,8 +7,6 @@ const ResearchPage = () => {
   return (
     <div>
       <section id="research">
-        <h2>{t('research.title')}</h2>
-        
         <h3>{t('research.thesisTitle')}</h3>
         <p>
           <strong>{t('research.thesisSubtitle')}</strong>

@@ -7,10 +7,6 @@ const CVSection = React.memo(() => {
   return (
     <section className="cv-section">
       <h3>{t('bio.cvTitle')}</h3>
-      <p>
-        {t('bio.cvName')}<br />
-        {t('bio.cvDescription')}
-      </p>
     </section>
   );
 });

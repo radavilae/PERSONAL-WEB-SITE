@@ -10,12 +10,144 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  color: #ccc;
+  background-color: #0f0f0f;
+}
+
+/* Dark Mode Text Elements */
+body.dark-mode section h3 {
+  color: #ccc;
+}
+
+body.dark-mode section h4 {
+  color: #ccc;
+}
+
+body.dark-mode #research p:first-of-type {
+  color: #ccc;
+}
+
+body.dark-mode #nombre {
+  color: #ccc;
+}
+
+body.dark-mode .instagram-link {
+  color: #ccc;
+}
+
+body.dark-mode section p {
+  color: #ccc;
+}
+
+body.dark-mode section a {
+  color: #ccc;
+}
+
+body.dark-mode .indicator.active {
+  color: #ccc;
+  border-bottom-color: #ccc;
+}
+
+body.dark-mode .external-link {
+  color: #ccc;
+}
+
+body.dark-mode .carousel-control {
+  color: #ccc;
+}
+
+body.dark-mode .section-title {
+  color: #ccc;
+}
+
+body.dark-mode .links-grid a {
+  color: #ccc;
+}
+
+body.dark-mode .links-grid .section-title {
+  color: #ccc;
+}
+
+body.dark-mode #contact a {
+  color: #ccc;
+}
+
+body.dark-mode .lang-option:hover {
+  color: #ccc;
+}
+
+body.dark-mode .lang-option.active-lang {
+  color: #ccc;
+}
+
+/* Light Mode */
+body.light-mode {
+  color: #333;
+  background-color: #fff;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.theme-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.theme-dot.light {
+  background: #000;
+  border: none;
+}
+
+.theme-dot.dark {
+  background: #000;
+  border: none;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+body.dark-mode .theme-dot.light {
+  background: #fff;
+  border: none;
+}
+
+body.dark-mode .theme-dot.dark {
+  background: #fff;
+  border: none;
 }
 
 #root {
   max-width: 800px;
   margin: 0 auto;
-  padding: 5rem 1rem 2rem 1rem;
+  padding: 3rem 1rem 2rem 1rem; /* Reduced top padding from 5rem to 3rem */
 }
 
 /* Navigation Styles - Minimalist */
@@ -28,9 +160,16 @@ body {
   z-index: 1000;
   margin-bottom: 3rem;
   border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
   padding-bottom: 1rem;
   padding-right: 4rem;
   padding-top: 1rem;
+}
+
+/* Dark Mode Navigation */
+body.dark-mode #navbar {
+  background-color: #0f0f0f;
+  border-bottom: 1px solid #333;
 }
 
 /* Hamburger Menu Button */
@@ -57,6 +196,11 @@ body {
   border-radius: 2px;
   transition: all 0.3s ease;
   transform-origin: 1px;
+}
+
+/* Dark Mode Hamburger Lines */
+body.dark-mode .hamburger-line {
+  background-color: #fff;
 }
 
 .hamburger-line.open:nth-child(1) {
@@ -102,6 +246,15 @@ body {
   color: #666;
 }
 
+/* Dark Mode Navigation Links */
+body.dark-mode #menu-options li a {
+  color: #fff;
+}
+
+body.dark-mode #menu-options li a:hover {
+  color: #ccc;
+}
+
 /* Page Content - Clean Typography */
 #nombre {
   font-size: 2.5rem;
@@ -134,7 +287,51 @@ body {
   margin: 0 auto;
 }
 
-/* Section Styles - Minimalist */
+#bio {
+  margin: 1rem 0 3rem 0; /* Move Bio content down to match Research level */
+}
+
+#bio p:first-child {
+  margin-top: 0; /* Remove top margin from first paragraph */
+}
+
+#research {
+  margin: -1rem 0 3rem 0; /* Move all content up */
+}
+
+#research h3:first-child {
+  margin-top: 0 !important; /* Override section h3 margin-top */
+  margin-bottom: 0.5rem; /* Reduced margin */
+  font-size: 1.1rem; /* Same size as Bio paragraphs */
+  font-weight: 400; /* Same weight as Bio paragraphs */
+  color: #333; /* Same color as Bio paragraphs */
+}
+
+#research p:first-of-type {
+  margin-top: 0.5rem; /* Reduced margin */
+}
+
+#research p {
+  margin-top: 0.5rem; /* Reduced margin between paragraphs */
+  margin-bottom: 0.5rem;
+}
+
+.cv-section {
+  text-align: center;
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-section h3 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #333;
+  margin: 0;
+}
 section {
   margin: 3rem 0;
   text-align: left;
@@ -360,25 +557,29 @@ section a:hover {
   left: 0;
   right: 0;
   background: linear-gradient(transparent, rgba(0,0,0,0.7));
-  padding: 1rem 0.5rem 0.5rem 0.5rem;
-  backdrop-filter: blur(5px);
+  padding: 1.5rem 1rem 1rem 1rem;
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .soundcloud-player-overlay iframe {
   width: 100%;
+  max-width: 250px;
   height: 60px;
   border-radius: 4px;
-  opacity: 0.9;
+  opacity: 0.7;
   transition: opacity 0.2s ease;
 }
 
 .soundcloud-player-overlay:hover iframe {
-  opacity: 1;
+  opacity: 0.9;
 }
 
 .youtube-item {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 84%; /* Adjusted for 470px height to maintain aspect ratio */
   height: 0;
   overflow: hidden;
 }
@@ -403,14 +604,38 @@ section a:hover {
   padding-bottom: 100%;
   overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .score-item:hover,
 .urbild-item:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Urbild Card Styles - Same as SoundCloud */
+.urbild-item {
+  height: 470px; /* Same height as Bandcamp and SoundCloud */
+}
+
+.urbild-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.urbild-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.urbild-item:hover .urbild-image {
+  transform: scale(1.05);
 }
 
 .score-container {
@@ -627,11 +852,19 @@ section a:hover {
 /* Empty Score Items */
 .score-empty-item {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 ratio como YouTube */
-  background: transparent;
+  padding-bottom: 0; /* Remove aspect ratio, use fixed height */
+  height: 470px; /* Same height as Bandcamp and YouTube */
   border: 1px solid #ddd;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: default;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  background-image: url('/imagenes/scores/scoresimg/socre1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .score-floating-text {
@@ -645,39 +878,34 @@ section a:hover {
 }
 
 .score-floating-text p {
-  margin: 0.3rem 0;
   font-size: 0.8rem;
-  color: #333;
-  line-height: 1.3;
-  font-weight: normal;
+  margin: 0.3rem 0;
+  color: #fff; /* White text */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Text shadow for better contrast */
 }
 
 .score-floating-text p:first-child {
   font-size: 0.9rem;
-  color: #000;
   font-weight: bold;
+  color: #fff; /* White text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Stronger shadow for title */
 }
 
 .score-pdf-btn {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.3rem 0.8rem;
-  background: transparent;
-  color: #333;
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  background-color: transparent;
+  border: 1px solid #fff; /* White border */
+  color: #fff; /* White text */
   text-decoration: none;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
   cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
 }
 
 .score-pdf-btn:hover {
-  background: transparent;
-  color: #666;
-  text-decoration: none;
-  border: none;
+  background-color: #fff;
+  color: #000;
 }
 
 @media (max-width: 768px) {
@@ -1022,12 +1250,17 @@ text-decoration: underline;
     min-height: 320px;
   }
   
+  .urbild-item {
+    height: 320px; /* Same as SoundCloud */
+  }
+  
   .soundcloud-player-overlay {
-    padding: 0.8rem 0.4rem 0.4rem 0.4rem;
+    padding: 1rem 0.8rem 0.8rem 0.8rem;
   }
   
   .soundcloud-player-overlay iframe {
-    height: 50px;
+    max-width: 200px;
+    height: 45px;
   }
   
   .score-empty-item {
@@ -1532,17 +1765,18 @@ padding: 5rem 1.5rem 2.5rem 1.5rem;
 max-width: 900px;
 padding: 4rem 1.5rem 2rem 1.5rem;
 }
+
+  .soundcloud-card {
+    height: 450px;
+  }
   
-.media-grid {
-grid-template-columns: repeat(2, 1fr);
-gap: 1.5rem;
-}
+  .urbild-item {
+    height: 450px; /* Same as SoundCloud */
+  }
   
-.indicator-container {
-flex-wrap: wrap;
-justify-content: center;
-gap: 1rem;
-}
+  .soundcloud-item iframe {
+    height: 280px;
+  }
   
 .indicator {
 padding: 0.5rem 1rem;

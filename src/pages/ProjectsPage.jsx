@@ -144,10 +144,10 @@ const ProjectsPage = () => {
 
   // Urbild Editions - Agrega las URLs o imágenes de tus publicaciones
   const urbildEditions = [
-    { url: 'https://www.instagram.com/urbildeditions/p/POST_ID_1/', image: '/images/urbild1.jpg', title: 'Urbild Edition 1' },
-    { url: 'https://www.instagram.com/urbildeditions/p/POST_ID_2/', image: '/images/urbild2.jpg', title: 'Urbild Edition 2' },
-    { url: 'https://www.instagram.com/urbildeditions/p/POST_ID_3/', image: '/images/urbild3.jpg', title: 'Urbild Edition 3' },
-    { url: 'https://www.instagram.com/urbildeditions/p/POST_ID_4/', image: '/images/urbild4.jpg', title: 'Urbild Edition 4' }
+    { url: 'https://www.instagram.com/urbildeditions/p/POST_ID_1/', image: '/imagenes/urbild/urbild1.jpg', title: 'Urbild Edition 1' },
+    { url: 'https://www.instagram.com/urbildeditions/p/POST_ID_2/', image: '/imagenes/urbild/urbild2.jpg', title: 'Urbild Edition 2' },
+    { url: 'https://www.instagram.com/urbildeditions/p/POST_ID_3/', image: '/imagenes/urbild/urbild3.jpg', title: 'Urbild Edition 3' },
+    { url: 'https://www.instagram.com/urbildeditions/p/POST_ID_4/', image: '/imagenes/urbild/urbild4.png', title: 'Urbild Edition 4' }
   ];
 
   return (
@@ -230,7 +230,7 @@ const ProjectsPage = () => {
                     <div className="video-wrapper">
                       <iframe
                         width="100%"
-                        height="315"
+                        height="470"
                         src={`https://www.youtube.com/embed/${video.id}`}
                         title={video.title}
                         frameBorder="0"
@@ -256,7 +256,7 @@ const ProjectsPage = () => {
                     <div className="soundcloud-card">
                       <div className="soundcloud-image">
                         <img 
-                          src={`/imagenes/foto-home.jpg`}
+                          src={`/imagenes/soundcloud/soundcloud1.png`}
                           alt={`SoundCloud Track ${index + 1}`}
                           className="soundcloud-cover"
                         />
@@ -267,7 +267,7 @@ const ProjectsPage = () => {
                             scrolling="no"
                             frameBorder="no"
                             allow="autoplay"
-                            src={embed.src}
+                            src={embed.src.replace('/visual/', '/').replace('&show_artwork=true', '&show_artwork=false&show_user=false&show_reposts=false&show_comments=false&auto_play=false&hide_related=true&show_playcount=false&liking=false&sharing=false&download=false&show_teaser=false')}
                             title={embed.title}
                           ></iframe>
                         </div>
@@ -379,7 +379,7 @@ const ProjectsPage = () => {
                         alt={edition.title}
                         className="urbild-image"
                         onError={(e) => {
-                          e.target.src = 'https://via.placeholder.com/400x400?text=Urbild+Edition';
+                          e.target.src = 'https://via.placeholder.com/400x470?text=Urbild+Edition';
                         }}
                       />
                     </a>

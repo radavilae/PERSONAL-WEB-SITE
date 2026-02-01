@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Navigation from './components/Navigation';
 import './App.css';
 
@@ -18,22 +19,24 @@ const LoadingSpinner = () => (
 
 function App() {
   return (
-    <LanguageProvider>
-      <Router>
-        <div className="App">
-          <Navigation />
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/bio" element={<BioPage />} />
-              <Route path="/research" element={<ResearchPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-            </Routes>
-          </Suspense>
-        </div>
-      </Router>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <Router>
+          <div className="App">
+            <Navigation />
+            <Suspense fallback={<LoadingSpinner />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/bio" element={<BioPage />} />
+                <Route path="/research" element={<ResearchPage />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+              </Routes>
+            </Suspense>
+          </div>
+        </Router>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
 

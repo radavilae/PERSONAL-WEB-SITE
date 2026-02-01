@@ -10,7 +10,6 @@ const BioPage = () => {
   return (
     <div>
       <section id="bio">
-        <h2>{t('bio.title')}</h2>
         <p>
           {t('bio.paragraph1')}
         </p>
@@ -114,9 +113,9 @@ const BioPage = () => {
         </p>
 
         <p>
-          <ExternalLink href="https://drive.google.com/uc?export=download&id=1-SB1AvfL1jhTSlacA1W-N5NdBWkNvXEg">
+          <a href="/cv-raul-davila.pdf" download="raul-davila-cv.pdf">
             {t('bio.downloadCV')}
-          </ExternalLink>
+          </a>
         </p>
       </section>
     </div>

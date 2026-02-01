@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSelector from './LanguageSelector';
+import ThemeToggle from './ThemeToggle';
 
 const Navigation = () => {
   const { t } = useLanguage();
@@ -36,6 +37,7 @@ const Navigation = () => {
         <li><Link to="/projects" onClick={closeMenu}>{t('nav.projects')}</Link></li>
         <li><Link to="/contact" onClick={closeMenu}>{t('nav.contact')}</Link></li>
         <LanguageSelector />
+        <ThemeToggle />
       </ul>
     </nav>
   );
