@@ -18,6 +18,12 @@ const Navigation = () => {
 
   return (
     <nav id="navbar">
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`mobile-menu-overlay ${isMenuOpen ? 'active' : ''}`}
+        onClick={closeMenu}
+      />
+
       {/* Hamburger Menu Button */}
       <button 
         className="hamburger-menu" 
