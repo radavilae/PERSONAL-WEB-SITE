@@ -378,8 +378,12 @@ const ProjectsPage = () => {
                         src={edition.image}
                         alt={edition.title}
                         className="urbild-image"
+                        onLoad={() => {
+                          console.log(`Image loaded: ${edition.image}`);
+                        }}
                         onError={(e) => {
-                          e.target.src = 'https://via.placeholder.com/400x470?text=Urbild+Edition';
+                          console.error(`Image failed to load: ${edition.image}`);
+                          e.target.src = 'https://via.placeholder.com/400x470/cccccc/333333?text=Urbild+Edition';
                         }}
                       />
                     </a>
